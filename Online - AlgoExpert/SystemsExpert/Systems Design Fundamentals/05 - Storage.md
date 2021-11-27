@@ -1,0 +1,42 @@
+# 05 - Storage
+
+- Database:
+    - Thing that serves two main purposes:
+        - Store data.
+        - Retrieve data.
+        - Synonymous word pairs:
+            - Reading / writing data.
+            - Setting / getting data.
+            - Recording / querying data.
+- Common misconception:
+    - Magical opaque box that lives somewhere in the ether.
+- Really (almost always):
+    - Just a server.
+- Persistence:
+    - Important concept.
+    - Persistence of the data you store in a database.
+    - People assume that if you store data and for some reason the database experiences one of the following:
+        - Power outage.
+        - Network issue.
+        - Database crashes.
+    - ... Once you turn everything back on, the data will still be there.
+    - Fair, many databases mitigate for these things.
+    - But, this is not always correct.
+    - Leads us to two fundamental things in storage:
+        - Disk.
+        - Memory.
+    - Writing data to disk.
+        - Data will persist.
+    - Writing to memory.
+        - Data will not persist.
+        - E.g. server code array or hash table.
+        - Reading/writing here is much faster.
+- Many storage/database offerings.
+- A field that is broad and deep.
+- Example:
+    - A database can impose some sort of structure on the way the data is sorted in it.
+        - E.g relational databases.
+    - Availability: Uptime.
+    - Distributed storage.
+        - Multiple machines.
+        - Consistency issues.

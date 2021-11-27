@@ -1,0 +1,52 @@
+# 15 - Replication And Sharding
+
+- !!! BRIEF NOTES !!!
+
+- A system's performance is very dependent on the system's database.
+- Replication:
+    - Duplicate of the main database.
+    - Main database:
+        - Handles all reads/writes.
+        - Maintains the replica.
+    - Replica always needs to be up-to-date with the main database.
+        - Needs "sync" updates.
+        - Needs to synchronously update the replica.
+        - Replica need to always be up-to-date.
+        - If this sync fails, then there is a problem.
+        - Write operations will take a bit longer as a result.
+    - This improves the availability.
+    - Can also improve latency.
+    - Eg US database and a India database for LinkedIn.
+        - Can "async" update the other database.
+        - Like every minute.
+        - Avoid doing round trip to the India database.
+    - Eg CDN, software version.
+- Main database..
+- Getting overloaded..
+- Throughput getting limited..
+- Scale horizontally..
+- Add database servers that replicate the main database.
+- Maybe a massive database..
+- Will use way too much resources.
+- Can split up the data. Partitioning.
+- This is called: Sharding:
+    - Shards or data partitions.
+    - Increase throughput.
+    - Avoid duplicating massive about of data many time.
+    - How to split?
+    - Where to put data?
+    - Relational database:
+        - Split tables.
+        - Some rows in one shard, others in other.
+        - Eg by customer name, region.
+    - Problems:
+        - Hotspots: Freq used shards.
+    - Can use hashing.
+        - Consistent hashing may be a good idea here.
+            - If a database goes down, consistent hashing won't help.
+            - You would need replicas.
+    - The logic of which shard can be in the server (application code)..
+    - But better to have the logic in a reverse proxy.
+- [Coding example]
+- Real system, make sure your sharding strategy is smart..
+- Use a robust hashing algorithm.

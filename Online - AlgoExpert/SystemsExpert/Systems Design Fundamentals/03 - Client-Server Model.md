@@ -1,0 +1,49 @@
+# 03 - Client-Server Model
+
+- AKA client-server architecture.
+- Client:
+    - Something, a machine, that speaks to a server.
+- Sever:
+    - Something else, a machine, that listens to clients and then speaks back to those clients.
+- The client knows that it can communicate with the "server".
+- But it does not know what the server is or what it represents.
+- Behind the scenes:
+    - At first the client does not know how to talk to the server.
+    - Makes a DNS query.
+    - Finds out the IP address of the URL.
+- DNS query:
+    - Special request.
+    - To a set of pre-determines set of servers.
+    - Asks for the IP address of a URL.
+- IP address:
+    - A unique identifier for a machine.
+- An entity will provide a machine with an IP address.
+    - E.g. Google Cloud Platform.
+- UNIX / Linux / MacOS:
+    - Terminal:
+    - `$ dig <URL>`
+    - Makes a DNS request and resolves the IP address of the given URL.
+- Once a browser has an IP address:
+    - Sends an HTTP request to the IP address.
+- An HTTP request:
+    - A bunch of bytes / characters.
+    - These are packed into packets (in some special format).
+    - These packets are sent over to the server.
+    - The request also contain the IP address of the client.
+    - This is called the source address of the request. 
+    - The server then will know where to send it's response.
+- Ports.
+- A server usually listens to requests on specific ports.
+- Any machine that has a distinct IP address has 16,000 ports that programs on the machine can listen to.
+- When you communicate with another machine, you need to specify what port you want to communicate on.
+- Default ports for particular protocols:
+    - HTTP: 80.
+    - HTTPS: 443.
+- UNIX: Net cat:
+    - Terminal 1:
+        - `nc -l 8081`.
+        - `-l`: Listen.
+    - Terminal 2:
+        - `nc 127.0.0.1 8081`
+        - `127.0.0.1`: Special IP address that always points to your own machine.
+        - A communication chanel has been set up between the two.

@@ -1,0 +1,49 @@
+# 10 - Load Balancers
+
+- !!! BRIEF NOTES !!!
+
+- Client - Server.
+- Server: Limited resources.
+- System: Limited throughput.
+- Server: Too many requests: Overloaded.
+    - Either:
+        - Failure.
+        - Slow.
+- Solve: Scale!
+    - Vertically scale.
+        - More power.
+    - Horizontally scale.
+        - More servers.
+- Load balancers:
+    - Server sitting between clients and servers.
+    - Distributes the requests.
+    - Better throughput.
+    - Better latencies.
+    - Better use of resources.
+- Load balancers: A type of reverse proxy.
+- There can be many load balancers in a system.
+    - Client <-> DNS server.
+    - Server <-> Database.
+- DNS round robin.
+- Hardware load balancers.
+- Software load balancers.
+    - Can do more with these ones.
+- You can register / deregister servers with the load balancer.
+- How are requests distributed / server selection:
+    - Redirect in a random order.
+    - Round robin:
+        - Loops though all the servers.
+    - Weighted round robin.
+    - Based on performance or load.
+        - Load balancer performs health checks on the servers.
+    - IP based server selection.
+        - Hash the source IP.
+        - Correspond this with a particular server.
+        - Good for if server's have cacheing.
+    - Path based server strategy.
+        - Can update specialised servers at a time.
+- Can have multiple load balancers that have different server selection strategies.
+    - Layered.
+- Can have more than one load balancers in one part of the system.
+    - Avoid a single point of failure.
+    - These load balancers can communicate between each other.

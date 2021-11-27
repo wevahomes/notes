@@ -1,0 +1,65 @@
+# 12 - Relational Databases
+
+- !!! BRIEF NOTES !!!
+
+- One characterise can split databases into two categories.
+- Structure imposed on the data that is sorted in the databases.
+- Relational vs non-relational databases.
+- Imposes a tabular-like structure.
+- Data is stored in forms of tables.
+    - Aka relations.
+- Structures that store a bunch of data.
+- Represent a particular entity.
+    - Eg payments.
+- Rows: Instances of the entities.
+    - Aka: Records.
+- Cols: Attributes of the entities.
+- Defined schemas:
+    - Rules on how the data is to be stored in the relational databases.
+- Non-relational databases.
+    - Don't impose tabular structure.
+    - May still impose a structure.
+    - A lot less structured though.
+- Relational: Strict structure.
+- Most support: SQL.
+    - Structured query language.
+    - Relational <-> SQL database - Used interchangeably.
+    - SQL: S Q L or sequel.
+- Can perform very powerful queries on the data.
+    - The reason to use.
+    - This business logic in code is not efficient.
+- Non-relational <-> Non-SQL database.
+- Non-relational databases can have their own query language.
+- Relational...
+- A query doesn't need to load the database into memory.
+- SQL database must use ACID transactions.
+    - Transaction in a database that has 4 properties:
+        - Atomicity:
+            - Transaction: multiple suboperations: considered to be a unit.
+                - Eg transferring money.
+                - If one suboperation fails, they all fail.
+        - Consistently:
+            - Transaction will conform to all rules of the database.
+            - Any future transaction will take into account any past transaction.
+        - Isolation:
+            - Multiple transactions can occur at the same time.
+            - But will be done as if they were done sequentially.
+        - Durability:
+            - When you make a transaction the effects are permanent.
+- Database index:
+    - Can create an additional data structure that is optimised for a particular attribute.
+        - Auxiliary data structure.
+    - Simplified.
+    - Good for search queries.
+    - Trade-off:
+        - More space.
+        - When you write to database, you will also write to the index.
+        - Ie slower.
+    - But read operations might be much faster.
+- [Coding example]
+    - SQL commands can be done concurrently.
+    - But are done sequentially.
+- Google cloud datastore:
+    - Eventual consistency.
+    - Data was sometimes stale.
+    - This goes against ACID.

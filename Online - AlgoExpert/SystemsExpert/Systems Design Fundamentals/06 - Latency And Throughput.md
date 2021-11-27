@@ -1,0 +1,35 @@
+# 06 - Latency And Throughput
+
+- The two most important measures of the performance of a system.
+- Latency:
+    - How long it takes for data to traverse a system.
+    - One point to another point.
+    - May be referring to many different things.
+    - E.g. The latency of a network request.
+        - How long does it take for a request to go from client -> server and then the response to go from the server -> client.
+    - E.g. Reading data from storage (local for example).
+    - Examples:
+        - Reading 1 MB sequentially from:
+            - Memory: 250 microseconds.
+            - SSD: 1000 microseconds.
+            - 1 Gbps: 10,000 microseconds.
+            - HDD: 20,000 microseconds.
+        - Packet: Typically: 1000 - 1500 bytes: California -> Netherlands -> California
+            - 150,000 microseconds.
+    - Should try to design the system to reduce the latency, if it is important.
+        - Else may compromise in order to have better accuracy, uptime, etc.
+- Throughput:
+    - How much work a machine can perform in a given period of time.
+        - Doesn't seem to be a good definition.
+    - How much data can be transferred to one point in a system to another point in a given amount of time.
+    - Gbps, Mbps, etc.
+    - E.g. A server handling loads of requests.
+        - How many requests can it handle?
+        - Related it to bits, how many bits can it handle?
+    - To increase throughput: Pay for it!
+        - Naive: Just increasing throughput may not speed up the system.
+        - May still be a bottle neck on a server.
+        - May be better to have multiple servers for example.
+- Latency and throughput may not necessarily be correlated.
+    - A system may have a low latency but a low throughput.
+    - Vice versa.

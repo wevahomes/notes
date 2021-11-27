@@ -1,0 +1,61 @@
+# 07 - Availability
+
+- Need to think about latency & throughput.
+- Also need to think about availability.
+- How resistant a system is to failures.
+    - Server failure.
+    - Database failure.
+    - Go down or operational?
+    - How fault tolerant is a system.
+- Percentage of time, in a given period of time, operational enough such that all of it primary functions are satisfied.
+- Implied guarantee of availability (in this day in age).
+    - So for the designers of the system, availability is very important.
+- Different levels of acceptability.
+    - AlgoExpert.
+    - Software to fly a plane.
+- Typically measure availability as the percentage of a system's uptime in a given year.
+- Up and operational for half of a year: 50% availability.
+    - This is really bad. Unacceptable.
+- Availability: Usually really high percentages.
+- Often end up measuring availability in "nines".
+    - 99%: 2 nines.
+    - 99.9%: 3 nines.
+    - 99.99%: 4 nines.
+    - 99.999% 5 nines:
+        - Gold standard.
+        - High availability (HA).
+- Implied guarantee of availability.
+- Explicit guarantee of availability.
+- Service providers have SLAs.
+- Service Level Agreement (SLA):
+    - Availability.
+    - Amongst other things all included.
+- Service Level Objective (SLO):
+    - Components of a SLA.
+- Not always the case that availability is super important.
+    - It has trade-offs.
+        - Higher latency.
+        - Lower throughput.
+    - What parts need it?
+- How do you improve the availability of a system?
+    - First and foremost:
+        - Your system should not have single points of failure.
+        - Need redundancy.
+- E.g. 1 server:
+    - Add servers and a load balancer.
+    - Then will need to add more load balancers.
+- Passive redundancy:
+    - Multiple components in a system.
+    - One dies, others take the load.
+- Active redundancy:
+    - Multiple machines:
+    - Some do work.
+    - If one of these fails.
+    - Other machines will know and take over.
+    - This example is called leader election.
+- Want to make a system highly available:
+    - Need to remove single points of failure.
+    - Can do that by introducing redundancy.
+- Also want to make sure you have rigorous processes in place to handle system failures.
+    - May need human intervention.
+    - Need processes to ensure this happens in a proper time frame.

@@ -1,0 +1,53 @@
+# 11 - Hashing
+
+- !!! BRIEF NOTES !!!
+
+- Two types covered here:
+    - Consistent hashing.
+    - Rendezvous hashing.
+- Arbitrary bit of data to a fixed (integer) value.
+- Example: Computationally expensive requests.
+    - Can use cacheing.
+    - In-server cache.
+    - A random or a round robin load balancer will not take advantage of this in-server cache.
+    - You will miss cache hits.
+- Can hash the client names so that they always use the same server.
+- A simple hash might be the MOD operator.
+    - Gets the remainder.
+    - Eg: 11 % 4 = 3.
+- The hashing function should have uniformity.
+- Some hashing functions / algorithms:
+    - MD5
+    - SHA1
+    - B Crypt
+- Large scale distributed systems may have problems:
+    - A server may die.
+    - Need to add another server to handle traffic.
+- MOD by the new number of servers.
+- Once again face the problem of miss a number of cache hits.
+- This is bad when you have a large system.
+- Using a simple MOD hash thus does not work.
+- Solution for when you have to -/+ a server.
+- Consistent hashing:
+    - Arrange the servers in a circle rather than on a line.
+        - May use a hashing function for the placing.
+    - The circle represents numbers that are outputted from the hash function.
+    - Place the clients on the circle.
+        - Use the hashing function.
+    - For each client, go in a direction along the circle.
+    - The first server encountered is where the client will get routed to by the load balancer.
+    - If a server dies, the clients will move along to the next server along the circle.
+        - Not many maps change.
+    - Maintains a good level of mapping history as servers are added/removed.
+    - Can put the servers though multiple hashing functions and have them in multiple places around the circle.
+        - This can improve distribution of servers on the circle.
+    - Say if you have a server that is more powerful?
+        - Pass that server through more hashing functions.
+        - Consistent!
+- Rendezvous hashing:
+    - For each client, the servers are ranked.
+        - The rankings are computed.
+    - If servers are removed, that server is just skipped in the ranking.
+        - Or a ranking is not computed during the routing.
+    - Consistency in the client to server mapping is kept.
+- If your system is using in memory caching, you should be using one of these hashing methods.
